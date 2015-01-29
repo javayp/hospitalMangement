@@ -6,26 +6,29 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
+
 @Entity
 @Table(name="user")
 public class User {
 	
 	@Id
-	@TableGenerator(name="id_table_gen",pkColumnName="gen_name",valueColumnName="gen_value",pkColumnValue="user_id",table="id_gen")
-	@GeneratedValue(generator="id_table_gen")
-	private int id;
+	@TableGenerator(name="id_user_gen",pkColumnName="gen_name",valueColumnName="gen_value",pkColumnValue="user_id",table="id_gen")
+	@GeneratedValue(generator="id_user_gen")
+	private Integer id;
 	
 	private String name;
 	
 	private String email;
 	
 	private String password;
+	
+	private String country;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -51,5 +54,13 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 }
